@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .card-category {
   background-size: cover;
+  text-decoration: none;
   background-position: center;
   height: 180px;
   display: flex;
@@ -14,4 +15,14 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+
+  a {
+    text-decoration:none;
+    color:white;
+    &:hover{
+      color: #75DDDD;
+      transition: 0.3s;
+    }
+  }
 }
