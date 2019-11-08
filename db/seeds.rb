@@ -4,12 +4,22 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "whiskey")
-Ingredient.create(name: "gin")
-Ingredient.create(name: "rum")
-Ingredient.create(name: "lime")
-Ingredient.create(name: "sugar")
+#   Character.create(name: 'Luke', movie: movies.first)\
+Cocktail.destroy_all
+Dose.destroy_all
+Ingredient.destroy_all
+
+require "json"
+require "open-uri"
+response = open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+json = JSON.parse(response.read)
+array = json['drinks']
+puts "start seeding"
+array.each do |x|
+ingredients = Ingredient.create(name: x["strIngredient1"])
+puts "#{ingredients.name}"
+end
+puts "done seeding"
+
+
+
