@@ -21,5 +21,7 @@ puts "#{ingredients.name}"
 end
 puts "done seeding"
 
+test_cocktail = Cocktail.new(name: 'whisky sour', remote_photo_url: "https://static.essen-und-trinken.de/bilder/d6/ed/58699/galleryimage/whiskeysour.jpg")
+test_cocktail.save
 
 
